@@ -50,7 +50,6 @@ an unchanged game will be returned.
 */
 
 export const makeMove = (game, pos) => {
-
     const currentPlayer = game.player === 'plr1' ? 1 : 2;
     const newBoard = game.board.map((value, index) => index === pos ? currentPlayer : value);
     return { player: currentPlayer === 1 ? 'plr2' : 'plr1', board: newBoard, line: [] }
@@ -61,3 +60,22 @@ export const winningPattern = (game, pos) => {
     if (this.board.value === winPatterns.value) {
     }
 };
+
+/*
+let checkWin = quickCheckWinPlr(BOARD,PLAYER); //om den är sann = VINST, om falsk: ICKE-VINST.
+let draw = board.every((el) => el > 0);
+
+export function quickCheckWinPlr(game, pos)
+{
+    const winPatterns = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6], [0, 1, 2], [3, 4, 5], [6, 7, 8]];
+
+    for(let i=0;i<winPatterns.length;i++) {
+        let tempA = winPatterns[i][0];
+        let tempB = winPatterns[i][1];
+        let tempC = winPatterns[i][2];
+        if(tempBoard[tempA] === tempPlr && tempBoard[tempB] === tempPlr && tempBoard[tempC] === tempPlr) return true;
+    }
+    return false;
+}
+
+*/
